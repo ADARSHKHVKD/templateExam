@@ -1,0 +1,36 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    
+<input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" placeholder="name" required>
+
+<div *ngIf="name.invalid && name.touched">
+    name is required
+
+</div>
+<br><br>
+
+
+<input type="email" name="email" [(ngModel)]="user.email" #email="ngModel" placeholder="email" required>
+
+<div *ngIf="email.invalid && email.touched">
+    email is required
+
+</div>
+<br><br>
+
+<input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" placeholder="password" required>
+
+<div *ngIf="password.invalid && password.touched">
+    password is required
+
+</div>
+
+
+<button type="submit" >submit</button>
+<br><br>
+
+
+
+
+
+</form>
+
