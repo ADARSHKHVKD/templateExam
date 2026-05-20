@@ -19,6 +19,7 @@ export class Form {
   onSubmit(form:any){
     console.log("object value:",this.user)
     console.log("form value :",form.value)
+   
   }
 
 }

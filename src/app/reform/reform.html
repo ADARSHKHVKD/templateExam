@@ -1,0 +1,74 @@
+<p>Reactive forms!</p>
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- name -->
+    <input type="text" formControlName="name" placeholder="name">
+
+    <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+
+        <div *ngIf="form.get('name')?.errors?.['required']">
+            name is required
+        </div>
+
+        <div *ngIf="form.get('name')?.errors?.['minlength']">
+            minimum 3 characters required
+        </div>
+
+        <div *ngIf="form.get('name')?.errors?.['pattern']">
+           only letters and spaces are allowed
+        </div>
+
+    </div>
+    <br><br>
+
+
+    <!-- email -->
+    <input type="email" formControlName="email" placeholder="Email">
+
+    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+
+        <div *ngIf="form.get('email')?.errors?.['required']">
+            email is required
+        </div>
+
+        <div *ngIf="form.get('name')?.errors?.['email']">
+            inavlid email format
+        </div>
+
+        
+
+    </div>
+
+    <!-- password -->
+    <input type="password" formControlName="password" placeholder="password">
+
+    <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+
+        <div *ngIf="form.get('password')?.errors?.['required']">
+            password is required
+        </div>
+
+        <div *ngIf="form.get('password')?.errors?.['minlength']">
+            passowrd must be at least 8 chacaters
+        </div>
+        <div *ngIf="form.get('password')?.errors?.['pattern']">
+            passowrd must be at least 8 chacaters
+        </div>
+
+
+        
+
+    </div>
+    <br><br>
+
+    
+
+
+
+
+
+
+
+
+</form>
