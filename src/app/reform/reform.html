@@ -1,74 +1,82 @@
 <p>Reactive forms!</p>
 
 
+<h1>Login Form</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <!-- name -->
-    <input type="text" formControlName="name" placeholder="name">
+    <label>Name:</label>
+    <input type="text" formControlName="name" placeholder="Enter Name">
 
     <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
-
         <div *ngIf="form.get('name')?.errors?.['required']">
-            name is required
+                Name is required
         </div>
 
         <div *ngIf="form.get('name')?.errors?.['minlength']">
-            minimum 3 characters required
+                Name required minimum 3 characters
         </div>
-
-        <div *ngIf="form.get('name')?.errors?.['pattern']">
-           only letters and spaces are allowed
-        </div>
-
     </div>
-    <br><br>
 
-
-    <!-- email -->
-    <input type="email" formControlName="email" placeholder="Email">
+<br><br>
+    <label>Email:</label>
+    <input type="email" formControlName="email" placeholder="Enter Email">
 
     <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
-
         <div *ngIf="form.get('email')?.errors?.['required']">
-            email is required
+                Email is required
         </div>
 
-        <div *ngIf="form.get('name')?.errors?.['email']">
-            inavlid email format
+        <div *ngIf="form.get('email')?.errors?.['email']">
+                Invalid email format
         </div>
-
-        
-
     </div>
 
-    <!-- password -->
-    <input type="password" formControlName="password" placeholder="password">
+<br><br>
+
+    <label>Password:</label>
+    <input type="password" formControlName="password" placeholder="Enter Password">
 
     <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
-
         <div *ngIf="form.get('password')?.errors?.['required']">
-            password is required
+            Password is required
         </div>
 
-        <div *ngIf="form.get('password')?.errors?.['minlength']">
-            passowrd must be at least 8 chacaters
-        </div>
         <div *ngIf="form.get('password')?.errors?.['pattern']">
-            passowrd must be at least 8 chacaters
+            Password must contain uppercase, lowercase, number and special character
+        </div>
+    </div>
+
+<br><br>
+
+    <label>Age:</label>
+    <input type="number" formControlName="age" placeholder="Enter Age">
+    
+    <div *ngIf="form.get('age')?.invalid && form.get('age')?.touched">
+        <div *ngIf="form.get('age')?.errors?.['required']">
+            Age is required
         </div>
 
-
-        
-
+        <div *ngIf="form.get('age')?.errors?.['min']">
+            Minimum age is 18
+        </div>
     </div>
-    <br><br>
 
+<br><br>
+    <label>Phone Number:</label>
+    <input type="text" formControlName="phone" placeholder="Enter Phone Number">
     
+    <div *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched">
 
+        <div *ngIf="form.get('phone')?.errors?.['required']">
+            Phone number is required
+        </div>
+        <div *ngIf="form.get('phone')?.errors?.['pattern']">
+             Enter valid 10-digit number
+        </div>
+    </div>
+<br><br>
 
-
-
-
-
-
+    <button type="submit" [disabled]="form.invalid">
+        Submit
+    </button>
 
 </form>
